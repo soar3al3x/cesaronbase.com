@@ -371,6 +371,26 @@ function countClicks(memeName) {
         },
         success: function(response) {
             console.log("Request successful:", response);
+            updateAndyCount();
+        },
+        error: function(xhr, status, error) {
+            console.error("Request failed:", status, error);
+        }
+    });
+
+}
+
+
+function updateAndyCount() {
+    $.ajax({
+        url: "http://127.0.0.1:38080/count_slaps",
+        type: "GET",
+        success: function(response) {
+            document.getElementById("andy-count").innerText = response.Andy;
+            document.getElementById("brett-count").innerText = response.brett;
+            document.getElementById("pepe-count").innerText = response.pepe;
+            document.getElementById("wolf-count").innerText = response.Wolf;
+            document.getElementById("total-slap").innerText = response.total;
         },
         error: function(xhr, status, error) {
             console.error("Request failed:", status, error);
@@ -378,4 +398,4 @@ function countClicks(memeName) {
     });
 }
 
-
+updateAndyCount();
