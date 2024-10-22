@@ -357,10 +357,25 @@ $("#slap-button-4").on("click", function () {
 var count = 0;
 var countDisplay = document.getElementById("countDisplay");
 
-function countClicks () {
+function countClicks(memeName) {
     count = count + 1;
     
     countDisplay.innerHTML = count;
+
+    $.ajax({
+        url: "http://localhost:38080/slap",
+        type: "POST",
+        contentType: "application/x-www-form-urlencoded",
+        data: {
+            meme_name: memeName
+        },
+        success: function(response) {
+            console.log("Request successful:", response);
+        },
+        error: function(xhr, status, error) {
+            console.error("Request failed:", status, error);
+        }
+    });
 }
 
 
