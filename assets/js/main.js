@@ -357,10 +357,45 @@ $("#slap-button-4").on("click", function () {
 var count = 0;
 var countDisplay = document.getElementById("countDisplay");
 
-function countClicks () {
+function countClicks(memeName) {
     count = count + 1;
     
     countDisplay.innerHTML = count;
+
+    $.ajax({
+        url: "https://api.cesaronbase.com/slap",
+        type: "POST",
+        contentType: "application/x-www-form-urlencoded",
+        data: {
+            meme_name: memeName
+        },
+        success: function(response) {
+            console.log("Request successful:", response);
+            updateAndyCount();
+        },
+        error: function(xhr, status, error) {
+            console.error("Request failed:", status, error);
+        }
+    });
+
 }
 
 
+function updateAndyCount() {
+    $.ajax({
+        url: "https://api.cesaronbase.com/count_slaps",
+        type: "GET",
+        success: function(response) {
+            document.getElementById("andy-count").innerText = response.Andy;
+            document.getElementById("brett-count").innerText = response.brett;
+            document.getElementById("pepe-count").innerText = response.pepe;
+            document.getElementById("wolf-count").innerText = response.Wolf;
+            document.getElementById("total-slap").innerText = response.total;
+        },
+        error: function(xhr, status, error) {
+            console.error("Request failed:", status, error);
+        }
+    });
+}
+
+updateAndyCount();
