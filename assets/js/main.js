@@ -363,7 +363,7 @@ function countClicks(memeName) {
     countDisplay.innerHTML = count;
 
     $.ajax({
-        url: "http://localhost:38080/slap",
+        url: "https://api.cesaronbase.com/slap",
         type: "POST",
         contentType: "application/x-www-form-urlencoded",
         data: {
@@ -383,7 +383,7 @@ function countClicks(memeName) {
 
 function updateAndyCount() {
     $.ajax({
-        url: "http://127.0.0.1:38080/count_slaps",
+        url: "https://api.cesaronbase.com/count_slaps",
         type: "GET",
         success: function(response) {
             document.getElementById("andy-count").innerText = response.Andy;
