@@ -1,10 +1,8 @@
 $('.slap-leaderboard .sl-header').on("click", function () {     
     
     if (!$(this).parent().hasClass("active")) {
-        //$(this).addClass("active");
         $(this).parent().addClass("active");
     } else { 
-        //$(this).removeClass("active");
         $(this).parent().removeClass("active");
     }
 });
@@ -12,7 +10,7 @@ $('.slap-leaderboard .sl-header').on("click", function () {
 /* ***************************************************************** */
 
 $('.menu-btn').on("click", function (e) {
-
+    $('body').removeClass("view-menu");
     if (!$(this).hasClass("active")) {
         $(this).addClass("active");
         $('body').addClass("view-menu");
@@ -25,13 +23,19 @@ $('.menu-btn').on("click", function (e) {
         menuBtnTl.reverse();
         menuTl.reverse();
     }
-
 });
+
+/* ***************************************************************** */
+
+const slapSound = new Audio();
+slapSound.src = "./assets/sounds/slap.mp3";
 
 const slapTitle = new SplitText(".sc-title", { type: "words, chars" });
 const slapSubTitle = new SplitText(".sc-subtitle", { type: "words" });
 const slapDisplay = new SplitText(".sc-no", { type: "words, chars" });
 
+gsap.set(".sc-title, .sc-subtitle, .sc-no", { transformOrigin: '50% 50%' })
+gsap.set(".slap-message", { scaleX: 0, transformOrigin: '0% 50%' })
 
 gsap.set('.menu-line', { transformOrigin: '100% 50%' });
 gsap.set('.menu-line-1', { y: -26 });
@@ -61,298 +65,190 @@ menuBtnTl
         ease: "back.out"
     }, '>-.5');
 
-    var menuTl = gsap.timeline({ paused: true });
+var menuTl = gsap.timeline({ paused: true });
 
-    menuTl
-        .to('.main-menu', {
-            duration: .5,
-            autoAlpha: 1,
-            ease: "power3.out"
-        });
-        
-        
+menuTl
+    .to('.main-menu', {
+        duration: .5,
+        autoAlpha: 1,
+        ease: "power3.inOut"
+    });
 
 /* ***************************************************************** */
-
 
 const intro = gsap.timeline({ });
 
-    intro 
-        .to('.wrapper, .header, .footer', {       
-            duration: .5,
-            autoAlpha: 1,
-            ease: "power1.out",
-        })
-        .from('.header-left', {       
-            duration: .3,
-            xPercent: -100,
-            autoAlpha: 0,
-            ease: "power1.out",
-            transformOrigin: '0% 50%'
-        }, ">-.3")   
-        .from('.follow-us', {       
-            duration: .3,
-            xPercent: 50,
-            autoAlpha: 0,
-            ease: "power1.out",
-            transformOrigin: '100% 50%'
-        }, ">-.3")
-        
-        .from('.logo ', {       
-            duration: .5,
-            scale: .7,
-            autoAlpha: 0,
-            rotate: 180,
-            ease: "power1.out",
-        }, ">-.1")        
-        .from('.follow-us strong', {       
-            duration: .5,            
-            y: "1.5vh",
-            autoAlpha: 0,
-            ease: "power1.out",
-        }, ">-.5")
-        .from('.follow-icon', {       
-            duration: .5,
-            stagger: .1,
-            scale: .7,
-            autoAlpha: 0,
-            ease: "power1.out",
-            transformOrigin: '50% 50%'
-        }, ">-.3")
+intro 
+    .to('.wrapper, .header, .footer', {       
+        duration: .5,
+        autoAlpha: 1,
+        ease: "power1.out",
+    })
+    .from('.header-left', {       
+        duration: .3,
+        xPercent: -100,
+        autoAlpha: 0,
+        ease: "power1.out",
+        transformOrigin: '0% 50%'
+    }, ">-.3")   
+    .from('.follow-us', {       
+        duration: .3,
+        xPercent: 50,
+        autoAlpha: 0,
+        ease: "power1.out",
+        transformOrigin: '100% 50%'
+    }, ">-.3")    
+    .from('.logo ', {       
+        duration: .5,
+        scale: .7,
+        autoAlpha: 0,
+        rotate: 180,
+        ease: "power1.out",
+    }, ">-.1")        
+    .from('.follow-us strong', {       
+        duration: .5,            
+        y: "1.5vh",
+        autoAlpha: 0,
+        ease: "power1.out",
+    }, ">-.5")
+    .from('.follow-icon', {       
+        duration: .5,
+        stagger: .1,
+        scale: .7,
+        autoAlpha: 0,
+        ease: "power1.out",
+        transformOrigin: '50% 50%'
+    }, ">-.3")
+    .from('.chain-address, .main-menu, .slap-leaderboard', {       
+        duration: .5,
+        stagger: .1,
+        y: gsap.utils.wrap(["1.5vh","-1.5vh","-1.5vh"]),
+        autoAlpha: 0,
+        ease: "power1.out",
+    }, ">-.6")
+    .from('.menu-btn', {       
+        duration: .3,
+        scale: .8,
+        y: "-1.5vh",
+        rotate: 180,
+        autoAlpha: 0,
+        ease: "power1.out",
+    }, ">-.6")
+    .from(slapTitle.chars, {       
+        duration: .5,
+        stagger: {
+            each: 0.05,
+            from: "left",
+            grid: "auto"
+        },
+        autoAlpha: 0,            
+        y: "4.4vh",
+        ease: "power1.out"
+    }, "1")
+    .from(slapSubTitle.words, {       
+        duration: .5,
+        stagger: {
+            each: 0.05,
+            from: "left",
+            grid: "auto"
+        },
+        autoAlpha: 0,
+        y: "3.4vh",
+        ease: "power1.out"
+    }, "1.1")
+    .from(slapDisplay.chars, {       
+        duration: .5,
+        stagger: {
+            each: 0.05,
+            from: "left",
+            grid: "auto"
+        },
+        autoAlpha: 0,
+        y: "5.4vh",
+        ease: "power1.out"
+    }, "1.1");
 
-        .from('.chain-address, .main-menu, .slap-leaderboard', {       
-            duration: .5,
-            stagger: .1,
-            y: gsap.utils.wrap(["1.5vh","-1.5vh","-1.5vh"]),
-            autoAlpha: 0,
-            ease: "power1.out",
-        }, ">-.6")
-        .from('.menu-btn', {       
-            duration: .3,
-            scale: .8,
-            y: "-1.5vh",
-            rotate: 180,
-            autoAlpha: 0,
-            ease: "power1.out",
-        }, ">-.6")
-
-        .from(slapTitle.chars, {       
-            duration: .5,
-            stagger: {
-                each: 0.05,
-                from: "left",
-                grid: "auto"
-            },
-            autoAlpha: 0,            
-            y: "4.4vh",
-            ease: "power1.out"
-        }, "1")
-        .from(slapSubTitle.words, {       
-            duration: .5,
-            stagger: {
-                each: 0.05,
-                from: "left",
-                grid: "auto"
-            },
-            autoAlpha: 0,
-            y: "3.4vh",
-            ease: "power1.out"
-        }, "1.1")
-        .from(slapDisplay.chars, {       
-            duration: .5,
-            stagger: {
-                each: 0.05,
-                from: "left",
-                grid: "auto"
-            },
-            autoAlpha: 0,
-            y: "5.4vh",
-            ease: "power1.out"
-        }, "1.1");
-
+ 
 /* ***************************************************************** */
 
-const slapSound = new Audio();
-slapSound.src = "./assets/sounds/slap.mp3";
+// if (isMobile) {
 
-gsap.set(".sc-title, .sc-subtitle, .sc-no", { transformOrigin: '50% 50%' })
-gsap.set(".slap-message", { scaleX: 0, transformOrigin: '0% 50%' })
+//     $("html").addClass("mobile");
+//     $("html").removeClass("desktop");
 
-$("#slap-button-1").on("click", function () {  
+//     $("#slap-button-1").on("click", function () {  
+//         countClicks('Pepe');
+//         slapSound.play();
+//         tlSlapCL1.restart();
+//     });
 
-    slapSound.play();
-    const tl = gsap.timeline({ });
+//     $("#slap-button-2").on("click", function () {  
+//         countClicks('Andy');
+//         slapSound.play();
+//         tlSlapCL2.restart();
+//     });
 
-    tl 
-        .to('#slap-background-1', {       
-            duration: .1,
-            autoAlpha: 1,
-            ease: "power1.out",
-        })
-        .to('#slap-background-1', {       
-            duration: .1,
-            autoAlpha: 0,
-            ease: "power1.in",
-        }, ">+.3")
-        .to('.slap-message-1', {       
-            duration: .1,
-            display:"block",
-            scaleX: 1,
-            ease: "power1.out",
-        }, ".15")
-        .to('.slap-message-1', {       
-            duration: .1,
-            display:"none",
-            scaleX: 0,
-            ease: "power1.in",
-        }, ">+.5")
-        .to('.sc-title, .sc-subtitle, .sc-no', {       
-            duration: .1,
-            stagger: .02,
-            scale: gsap.utils.wrap([1.1, 1.04, 1.14]),
-            ease: "back.inOut",
-        }, ".15")
-        .to('.sc-title, .sc-subtitle, .sc-no', {       
-            duration: .1,
-            scale: gsap.utils.wrap([1, 1, 1]),
-            ease: "back.inOut",
-        }, ">+.3");       
- 
-        tl();
+//     $("#slap-button-3").on("click", function () {  
+//         countClicks('Brett');
+//         slapSound.play();
+//         tlSlapCL3.restart();
+//     });
 
-});
+//     $("#slap-button-4").on("click", function () {  
+//         countClicks('Wolf');
+//         slapSound.play();
+//         tlSlapCL4.restart();
+//     });
 
-$("#slap-button-2").on("click", function () {  
+// } else {
+
+    // $("html").removeClass("mobile");
+    // $("html").addClass("desktop");
+
+    $("#slap-button-1").on("mousedown", function () {  
+        countClicks('Pepe');
+        slapSound.play();
+        tlSlapMD1.restart();
+    });
     
-    slapSound.play();
-    const tl = gsap.timeline({ });
+    $("#slap-button-1").on("mouseup", function () { 
+        tlSlapMU1.restart();
+    });
 
-    tl 
-        .to('#slap-background-2', {       
-            duration: .1,
-            autoAlpha: 1,
-            ease: "power1.out",
-        })
-        .to('#slap-background-2', {       
-            duration: .1,
-            autoAlpha: 0,
-            ease: "power1.in",
-        }, ">+.3")
-        .to('.slap-message-2', {       
-            duration: .1,
-            display:"block",
-            scaleX: 1,
-            ease: "power1.out",
-        }, ".15")
-        .to('.slap-message-2', {       
-            duration: .1,
-            display:"none",
-            scaleX: 0,
-            ease: "power1.in",
-        }, ">+.5")
-        .to('.sc-title, .sc-subtitle, .sc-no', {       
-            duration: .1,
-            stagger: .02,
-            scale: gsap.utils.wrap([1.1, 1.04, 1.14]),
-            ease: "back.inOut",
-        }, ".15")
-        .to('.sc-title, .sc-subtitle, .sc-no', {       
-            duration: .1,
-            scale: gsap.utils.wrap([1, 1, 1]),
-            ease: "back.inOut",
-        }, ">+.3");       
- 
-        tl();
-
-});
-
-$("#slap-button-3").on("click", function () {  
+    $("#slap-button-2").on("mousedown", function () {     
+        countClicks('Andy'); 
+        slapSound.play();
+        tlSlapMD2.restart();
+    });
     
-    slapSound.play();
-    const tl = gsap.timeline({ });
+    $("#slap-button-2").on("mouseup", function () {     
+        tlSlapMU2.restart();
+    });
 
-    tl 
-        .to('#slap-background-3', {       
-            duration: .1,
-            autoAlpha: 1,
-            ease: "power1.out",
-        })
-        .to('#slap-background-3', {       
-            duration: .1,
-            autoAlpha: 0,
-            ease: "power1.in",
-        }, ">+.3")
-        .to('.slap-message-3', {       
-            duration: .1,
-            display:"block",
-            scaleX: 1,
-            ease: "power1.out",
-        }, ".15")
-        .to('.slap-message-3', {       
-            duration: .1,
-            display:"none",
-            scaleX: 0,
-            ease: "power1.in",
-        }, ">+.5")
-        .to('.sc-title, .sc-subtitle, .sc-no', {       
-            duration: .1,
-            stagger: .02,
-            scale: gsap.utils.wrap([1.1, 1.04, 1.14]),
-            ease: "back.inOut",
-        }, ".15")
-        .to('.sc-title, .sc-subtitle, .sc-no', {       
-            duration: .1,
-            scale: gsap.utils.wrap([1, 1, 1]),
-            ease: "back.inOut",
-        }, ">+.3");       
- 
-        tl();
-
-});
-
-$("#slap-button-4").on("click", function () {  
+    $("#slap-button-3").on("mousedown", function () {      
+        countClicks('Brett');
+        slapSound.play();
+        tlSlapMD3.restart();
+    });
     
-    slapSound.play();
-    const tl = gsap.timeline({ });
+    $("#slap-button-3").on("mouseup", function () {      
+        tlSlapMU3.restart();
+    });
 
-    tl 
-        .to('#slap-background-4', {       
-            duration: .1,
-            autoAlpha: 1,
-            ease: "power1.out",
-        })
-        .to('#slap-background-4', {       
-            duration: .1,
-            autoAlpha: 0,
-            ease: "power1.in",
-        }, ">+.3")
-        .to('.slap-message-4', {       
-            duration: .1,
-            display:"block",
-            scaleX: 1,
-            ease: "power1.out",
-        }, ".15")
-        .to('.slap-message-4', {       
-            duration: .1,
-            display:"none",
-            scaleX: 0,
-            ease: "power1.in",
-        }, ">+.5")
-        .to('.sc-title, .sc-subtitle, .sc-no', {       
-            duration: .1,
-            stagger: .02,
-            scale: gsap.utils.wrap([1.1, 1.04, 1.14]),
-            ease: "back.inOut",
-        }, ".15")
-        .to('.sc-title, .sc-subtitle, .sc-no', {       
-            duration: .1,
-            scale: gsap.utils.wrap([1, 1, 1]),
-            ease: "back.inOut",
-        }, ">+.3");       
- 
-        tl();
+    $("#slap-button-4").on("mousedown", function () {      
+        countClicks('Wolf');
+        slapSound.play();
+        tlSlapMD4.restart();
+    });
+    
+    $("#slap-button-4").on("mouseup", function () {  
+        tlSlapMU4.restart();
+    });
+    
+// }
 
-});
+/* ***************************************************************** */
+/* ***************************************************************** */
 
 var count = 0;
 var countDisplay = document.getElementById("countDisplay");
@@ -379,7 +275,6 @@ function countClicks(memeName) {
     });
 
 }
-
 
 function updateAndyCount() {
     $.ajax({
