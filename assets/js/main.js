@@ -200,10 +200,50 @@ intro
 //         tlSlapCL4.restart();
 //     });
 
-// } else {
+        $("#slap-button-1").on("touchstart", function () {  
+            countClicks('Pepe');
+            slapSound.play();
+            tlSlapMD1.restart();
+        });
 
-    // $("html").removeClass("mobile");
-    // $("html").addClass("desktop");
+        $("#slap-button-1").on("touchend", function () { 
+            tlSlapMU1.restart();
+        });
+
+        $("#slap-button-2").on("touchstart", function () {     
+            countClicks('Andy'); 
+            slapSound.play();
+            tlSlapMD2.restart();
+        });
+
+        $("#slap-button-2").on("touchend", function () {     
+            tlSlapMU2.restart();
+        });
+
+        $("#slap-button-3").on("touchstart", function () {      
+            countClicks('Brett');
+            slapSound.play();
+            tlSlapMD3.restart();
+        });
+
+        $("#slap-button-3").on("touchend", function () {      
+            tlSlapMU3.restart();
+        });
+
+        $("#slap-button-4").on("touchstart", function () {      
+            countClicks('Wolf');
+            slapSound.play();
+            tlSlapMD4.restart();
+        });
+
+        $("#slap-button-4").on("touchend", function () {  
+            tlSlapMU4.restart();
+        });
+
+} else {
+
+    $("html").removeClass("mobile");
+    $("html").addClass("desktop");
 
     $("#slap-button-1").on("mousedown", function () {  
         countClicks('Pepe');
@@ -244,8 +284,8 @@ intro
     $("#slap-button-4").on("mouseup", function () {  
         tlSlapMU4.restart();
     });
-    
-// }
+
+}
 
 /* ***************************************************************** */
 /* ***************************************************************** */
