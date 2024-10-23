@@ -171,10 +171,10 @@ intro
  
 /* ***************************************************************** */
 
-// if (isMobile) {
+if (isMobile) {
 
-//     $("html").addClass("mobile");
-//     $("html").removeClass("desktop");
+    $("html").addClass("mobile");
+    $("html").removeClass("desktop");
 
 //     $("#slap-button-1").on("click", function () {  
 //         countClicks('Pepe');
