@@ -299,7 +299,7 @@ html, body  { font-size:10px; }
 @media screen and (max-width: 1020px) and (orientation:landscape) {
     html, body  { font-size:8px; }
     .slap-counter { bottom:9.6rem; }
-    .slap-backgrounds { background-size: auto 140%; background-position: 50% 35%; }
+    .slap-background, .slap-backgrounds { background-size: auto 140%; background-position: 50% 35%; }
 } 
 
 @media screen and (max-width: 667px) and (orientation:landscape) {
