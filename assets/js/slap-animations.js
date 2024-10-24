@@ -28,7 +28,7 @@ tlSlapMU1
         duration: 0,
         autoAlpha: 0,
         ease: "power1.in",
-    })       
+    },">+.1")       
     .to('.slap-message-1', {       
         duration: 0,
         display:"none",
@@ -108,7 +108,7 @@ tlSlapMU2
         duration: 0,
         autoAlpha: 0,
         ease: "power1.in",
-    })       
+    },">+.1")       
     .to('.slap-message-2', {       
         duration: 0,
         display:"none",
@@ -188,7 +188,7 @@ tlSlapMU3
         duration: 0,
         autoAlpha: 0,
         ease: "power1.in",
-    })       
+    },">+.1")       
     .to('.slap-message-3', {       
         duration: 0,
         display:"none",
@@ -268,7 +268,7 @@ tlSlapMU4
         duration: 0,
         autoAlpha: 0,
         ease: "power1.in",
-    })       
+    },">+.1")       
     .to('.slap-message-4', {       
         duration: 0,
         display:"none",
