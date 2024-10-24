@@ -301,7 +301,7 @@ tlSlapCL4
         stagger: .02,
         scale: gsap.utils.wrap([1.1, 1.04, 1.14]),
         ease: "back.inOut",
-    },">+.15")
+    },">+.15")   
 
     .to('#slap-background-4', {       
         duration: 0,
