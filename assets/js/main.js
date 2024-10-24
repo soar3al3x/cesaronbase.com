@@ -334,3 +334,14 @@ function updateAndyCount() {
 }
 
 updateAndyCount();
+
+/* ***************************************************************** */
+/* ***************************************************************** */
+
+function reportWindowSize() {
+    window.location.reload();
+}
+
+window.onresize = reportWindowSize;
+
+window.onorientationchange = reportWindowSize;
