@@ -84,7 +84,7 @@
 
 *, :after, :before { margin: 0; padding: 0; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; user-select:none; -webkit-user-select:none; }
 
-html, body { width:100%; min-height: 100vh; }
+html, body { width:100%; height: 100%; }
 html { /**/ font-size: 10px; /**/ overflow: hidden; }
 body { overflow:hidden; font-size: 1rem; font-weight: 400; font-family: var(--font-family); color:#1c1b1b; background: var(--blue-dark); }
 
@@ -100,7 +100,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--mono-white); font-weight: bold; font-famil
 /* *************************************************************************************************** */
 /* *************************************************************************************************** */
 
-.wrapper { width:100%; min-height: 100%; display: flex; flex-direction: column; position: relative; }
+.wrapper { width:100%; height: 100%; display: flex; flex-direction: column; position: relative; }
 
 .wrapper, .header, .footer { opacity:0; }
 
@@ -158,7 +158,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--mono-white); font-weight: bold; font-famil
 /* *************************************************************************************************** */
 /* *************************************************************************************************** */
 
-.slap-section { width:100%; height:100vh; position:relative; }
+.slap-section { width:100%; height:100%; position:relative; }
 
 .slap-background,
 .slap-backgrounds { width:100%; height: 100%; position:relative; background: transparent no-repeat 50% 50% / auto 120%; }
@@ -239,7 +239,6 @@ button.button { line-height:inherit!important; }
 
 .button-m { font: var(--button-m); }
 
-.button:hover,
 .button:active { background: var(--mono-white)!important;  border-color: var(--yellow)!important; }
 .button.active { background: var(--blue-dark)!important; color: var(--yellow)!important; border-color: var(--yellow)!important; }
 
@@ -336,6 +335,9 @@ html, body  { font-size:10px; }
     .sc-subtitle { margin-top:-.4vh; font-size: 3.2vh; line-height: 3.2vh; } 
     .sc-no { margin-top:-.4vh; font-size: 5.6vh; line-height: 5.6vh; } 
 
+    .header-right { padding-left: 0; padding-right: 10rem; }
+    .main-menu { opacity:0; visibility: hidden; width:100%; height: 100%; position:fixed; top:0; left:0; z-index:90; flex-direction: column; gap:2.4rem; justify-content: center; border-radius: 0; }
+    .button.menu-btn  { display:flex; width:6.4rem; height:6.4rem; top:2rem; right:2rem; }
     
 } 
 
@@ -354,9 +356,8 @@ html, body  { font-size:10px; }
 
     .chain-address { padding: 1rem 1.6rem 1rem 1rem; }
     
-    .main-menu { opacity:0; visibility: hidden; width:100%; height: 100%; position:fixed; top:0; left:0; z-index:90; flex-direction: column; gap:2.4rem; justify-content: center; border-radius: 0; }
+    .button.menu-btn  { width:5.6rem; height:5.6rem; top:1rem; right:1.2rem; }
     
-    .button.menu-btn  { display:flex; }
 }
 
 
