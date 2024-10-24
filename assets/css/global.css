@@ -293,19 +293,13 @@ html, body  { font-size:10px; }
 }
 
 @media only screen and (max-width: 1280px) and (orientation:landscape) {
-
     html, body  { font-size:9px; }
-
-}
-
-@media screen and (orientation:portrait), (max-width: 1020px) and (orientation:landscape) {
-
-
 }
 
 @media screen and (max-width: 1020px) and (orientation:landscape) {
     html, body  { font-size:8px; }
     .slap-counter { bottom:9.6rem; }
+    .slap-backgrounds { background-size: auto 140%; background-position: 50% 35%; }
 } 
 
 @media screen and (max-width: 667px) and (orientation:landscape) {
