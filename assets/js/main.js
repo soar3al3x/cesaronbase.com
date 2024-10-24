@@ -171,7 +171,7 @@ intro
  
 /* ***************************************************************** */
 
-if (isMobile) {
+if (isMobile || isIPad || isSamsungBrowser) {
 
     $("html").addClass("mobile");
     $("html").removeClass("desktop");
