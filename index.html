@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="" />
         
     <title>$Cesar</title>
@@ -28,7 +28,7 @@
                 <div class="slap-background slap-background-4" id="slap-background-4"></div>
             </div>
             <div class="slap-counter">
-                <h2 class="sc-title">Slap</h2>
+                <h2 class="sc-title">Hits</h2>
                 <h3 class="sc-subtitle">Count</h2>
                 <strong id="countDisplay" class="sc-no">00</strong>
             </div>
@@ -38,14 +38,14 @@
                 <strong id="display" class="sc-no">Landscape</strong>
             </div>
             <div class="slap-actions">
-                <button type="button" class="slap-button slap-button-1" id="slap-button-1" title="Slap $Pepe" onclick="countClicks('Pepe')"></button>
-                <button type="button" class="slap-button slap-button-2" id="slap-button-2" title="Slap $Andy" onclick="countClicks('Andy')"></button>
-                <button type="button" class="slap-button slap-button-3" id="slap-button-3" title="Slap $Brett" onclick="countClicks('Brett')"></button>
-                <button type="button" class="slap-button slap-button-4" id="slap-button-4" title="Slap $Wolf" onclick="countClicks('Wolf')"></button>
+                <button type="button" class="slap-button slap-button-1" id="slap-button-1" title="Hit $Pepe"></button>
+                <button type="button" class="slap-button slap-button-2" id="slap-button-2" title="Hit $Andy"></button>
+                <button type="button" class="slap-button slap-button-3" id="slap-button-3" title="Hit $Brett"></button>
+                <button type="button" class="slap-button slap-button-4" id="slap-button-4" title="Hit $Wolf"></button>               
             </div>
             <div class="slap-leaderboard">
                 <div class="sl-header">
-                    <h3><span>Total Slaps:</span><strong id="total-slap">1,335,062</strong></h3>
+                    <h3><span>Total Hits:</span><strong id="total-slap">1,335,062</strong></h3>
                     <i class="icon-arrow-bottom">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 25" style="enable-background:new 0 0 24 25;" xml:space="preserve">
                             <path d="M11.08,17.68l-7.19-7.19c-0.66-0.66-0.66-1.74,0-2.4l0.6-0.6c0.66-0.66,1.74-0.66,2.4,0l5.49,5.49l5.49-5.49 c0.66-0.66,1.74-0.66,2.4,0l0.6,0.6c0.66,0.66,0.66,1.74,0,2.4l-7.19,7.19c-0.35,0.35-0.83,0.51-1.29,0.49 C11.91,18.19,11.43,18.03,11.08,17.68z"/>
@@ -56,25 +56,25 @@
                     <h4>Leaderboard</h4>
                     <ul>                        
                         <li class="andy">
-                            <span>0.1</span> 
+                            <span>01.</span> 
                             <img src="assets/images/layout/andy-icon.png" />
                             <strong>$Andy</strong>
                             <span id="andy-count">551,420</span>
                         </li>
                         <li class="brett">
-                            <span>0.2</span> 
+                            <span>02.</span> 
                             <img src="assets/images/layout/brett-icon.png" />
                             <strong>$Brett</strong>
                             <span id="brett-count">351,620</span>
                         </li>
                         <li class="pepe">
-                            <span>0.3</span> 
+                            <span>03.</span> 
                             <img src="assets/images/layout/pepe-icon.png" />
                             <strong>$Pepe</strong>
                             <span id="pepe-count">243,620</span>
                         </li>
                         <li class="wolf">
-                            <span>0.4</span> 
+                            <span>04.</span> 
                             <img src="assets/images/layout/wolf-icon.png" />
                             <strong>$Wolf</strong>
                             <span id="wolf-count">188,340</span>
@@ -103,7 +103,7 @@
             </a>
             <nav class="main-menu">
                 <a class="button button-m" href="#">Whitepaper</a>
-                <a class="button button-m" href="#">Button</a>                
+                <a class="button button-m" href="#">Create PFP</a>                
             </nav>
             <a class="button menu-btn" href="#">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
@@ -154,12 +154,12 @@
     </footer>
 
     <script type="text/javascript" src="./assets/js/jquery-3.4.1.min.js?ver=1.0.0"></script>
-
-		<script src='./assets/js/gsap/gsap.min.js?ver=1.0.0'></script>
-		<script src='./assets/js/gsap/TextPlugin.min.js?ver=1.0.0'></script>
-		 <script src='./assets/js/gsap/SplitText.min.js?ver=1.0.0'></script>
-
-        <script type="text/javascript" src="./assets/js/main.js?ver=1.0.0"></script>
+    <script type="text/javascript" src="./assets/js/mobile-detect.js?ver=1.0.0"></script>
+    <script src='./assets/js/gsap/gsap.min.js?ver=1.0.0'></script>
+    <script src='./assets/js/gsap/TextPlugin.min.js?ver=1.0.0'></script>
+    <script src='./assets/js/gsap/SplitText.min.js?ver=1.0.0'></script>
+    <script type="text/javascript" src="./assets/js/slap-animations.js?ver=1.0.0"></script>
+    <script type="text/javascript" src="./assets/js/main.js?ver=1.0.0"></script>
 		    
 </body>
 </html>
